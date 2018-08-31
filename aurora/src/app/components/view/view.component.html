@@ -1,9 +1,35 @@
-<span *ngFor="let img of images | async" > <img class="image" src="{{img.url}}" (click)="getImageData(img.url)"></span>
-<hr/>
-<div *ngIf="imageData">
-  <img class="large-image" src="{{imageData.url}}">
-  <br>
-  {{imageData.caption}}
-  <br>
-  Age: {{imageData.age}}, Smile: {{imageData.smile}}
+<div id="main-container">
+  <div *ngIf="loading" id="loading">
+    <h3>Loading..</h3>
+  </div>
+  <div>
+    <img src="//aurorainsightsdev.azurewebsites.net/banner.png">
+  </div>
+  <div class="image-container"> 
+    <img *ngFor="let img of images | async" class="image" src="{{img.url}}" (click)="getImageData(img.url)">
+  </div>
+  <hr/>
+
+  <div *ngIf="imageData">
+    <div class="image-viewer"><img class="large-image" src="{{imageData.url}}">
+    </div>
+    <div class="image-metadata">
+      <h3>{{imageData.caption | titlecase}} </h3>
+        <p *ngIf="imageData.faceNotDetected">No Face Information 🙀</p>
+        <p *ngIf="!imageData.faceNotDetected">
+          Age: <span class="bigcase">{{imageData.age}}</span>
+          <br/> 
+          Smile: <span class="bigcase">{{imageData.smile}}</span>
+        </p>
+      
+        <p class="tag-cloud">
+          Tags: <br>
+          <span *ngFor="let tag of imageData.tags" class="tag"> {{tag}} </span>
+        </p>
+    </div>
+    
+
+    
+    
+  </div>
 </div>

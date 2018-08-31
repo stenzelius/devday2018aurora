@@ -1,3 +1,7 @@
+
+.image-container {
+    max-width: 1149px;
+}
 .image {
     max-height: 100px;
     float:left;
@@ -7,6 +11,43 @@ hr {
     clear:both;
 }
 
-large-image {
-    max-width:30%;
+.large-image {
+    max-width:90%;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px;
+    background-color: #98badf82;
+    margin: 0 5px 5px 0;
+    border-radius: 2px;
+}
+
+.image-metadata, .image-viewer {
+    float:left;
+    width:40%;
+    font-family: arial;
+    font-weight: light;
+}
+#loading {
+    font-family: arial;
+    font-weight: light;
+    
+    z-index: 10000;
+    position: absolute;
+    top:400px;
+    left:200px;
+    background-color:white;
+    opacity:0.9;
+    padding:100px;
+    width:80%
+
+
+}
+.bigcase {
+    font-size:2em;
+}
+#loading h3 {
+    opacity:1;
+
 }

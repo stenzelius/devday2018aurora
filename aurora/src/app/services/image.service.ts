@@ -70,7 +70,9 @@ export class ImageService {
     "Therese Nilsson.jpg",
     "Tobias Wettermark.jpg",
     "Victor Nyman.PNG",
-    "Viktor Voigt.png"
+    "Viktor Voigt.png",
+    "collage.jpg",
+    "celebs.jpg"
     ]
     
   
