@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CognitiveServiceService } from './cognitive-service.service';
+import { CognitiveService } from './cognitive-service.service';
 
 describe('CognitiveServiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CognitiveServiceService]
+      providers: [CognitiveService]
     });
   });
 
-  it('should be created', inject([CognitiveServiceService], (service: CognitiveServiceService) => {
+  it('should be created', inject([CognitiveService], (service: CognitiveService) => {
     expect(service).toBeTruthy();
   }));
 });

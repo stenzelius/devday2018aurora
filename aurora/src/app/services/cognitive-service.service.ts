@@ -10,16 +10,14 @@ export class CognitiveService {
   private cognitiveEndPoint:string = "https://westeurope.api.cognitive.microsoft.com/vision/v1.0";
   private subscriptionKey1:string = "6581582250924e238d68d8772a3280a9"
   private subscriptionKey2:string = "ae70019559f146759708a537ea6322c2"
-
+  private cognitiveFaceEndPoint = "https://westeurope.api.cognitive.microsoft.com/face/v1.0";
+  private subscriptionKeyFace1:string = "f8c650fe6d6840448a903383902bb5e9";
   
   public GetVision(imgUrl:string):Observable<any> {
     var headers = new Headers();
     headers.append('Ocp-Apim-Subscription-Key',this.subscriptionKey1);
     headers.append('Content-Type', 'application/json');
-
     headers.append('Accept', 'application/json');
-    
-
   // var imgUrl ="https://c1.staticflickr.com/4/3704/10853982094_c04138c2d4_b.jpg";
     var reqUri =`${this.cognitiveEndPoint}/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en`;
     return this._http.post(reqUri, {url:imgUrl },
@@ -30,15 +28,15 @@ export class CognitiveService {
 
   public GetFace(imgUrl:string):Observable<any> {
     var headers = new Headers();
-    headers.append('Ocp-Apim-Subscription-Key',this.subscriptionKey1);
+    headers.append('Ocp-Apim-Subscription-Key',this.subscriptionKeyFace1);
     headers.append('Content-Type', 'application/json');
 
     headers.append('Accept', 'application/json');
-    var reqUri =`${this.cognitiveEndPoint}/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en`;
+    var reqUri =`${this.cognitiveFaceEndPoint}/detect?returnFaceId=true&returnFaceAttributes=smile,age,facialHair`;
     return this._http.post(reqUri, {url:imgUrl },
       { headers:headers}
     );
 
   }
-
+  
 }

@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 export interface imageData {
   caption?:string;
   url?:string;
+  age?:number;
+  smile?:number;
 }
 @Component({
   selector: 'app-view',
@@ -27,13 +29,15 @@ export class ViewComponent implements OnInit {
   getImageData(imageUrl){
     this._congitiveService.GetVision(imageUrl).subscribe((visionResult)=>{
       var visionResult = JSON.parse(visionResult._body);
-      this._congitiveService.GetVision(imageUrl).subscribe((faceResult)=>{
+      this._congitiveService.GetFace(imageUrl).subscribe((faceResult)=>{
         
         var faceResult = JSON.parse(faceResult._body);
         var url = imageUrl;
         this.imageData = {
           url:imageUrl,
-          caption:visionResult.description.captions[0].text
+          caption:visionResult.description.captions[0].text,
+          age:faceResult[0].faceAttributes.age,
+          smile:faceResult[0].faceAttributes.smile
         }
       
       });
