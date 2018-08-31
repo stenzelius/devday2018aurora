@@ -1,0 +1,12 @@
+.image {
+    max-height: 100px;
+    float:left;
+    cursor:pointer;
+}
+hr {
+    clear:both;
+}
+
+large-image {
+    max-width:30%;
+}

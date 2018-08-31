@@ -1,0 +1,7 @@
+<span *ngFor="let img of images | async" > <img class="image" src="{{img.url}}" (click)="getImageData(img.url)"></span>
+<hr/>
+<div *ngIf="imageData">
+  <img class="large-image" src="{{imageData.url}}">
+  <br>
+  {{imageData.caption}}
+</div>
